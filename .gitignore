@@ -1,2 +1,4 @@
-.DStore
-.idea
+.DS_Store
+
+# .idea 文件夹
+.idea/
