@@ -2,7 +2,7 @@
 odd_lst = []
 even_lst = []
 
-nums = list(map(int,input().split()))
+nums = list(map(int, input().split()))
 for num in nums:
     if num % 2 == 0:
         even_lst.append(num)
@@ -18,6 +18,6 @@ result_lst = odd_lst + even_lst
 # 逐个打印输出
 for i in range(10):
     if i != 9:
-        print(result_lst[i],end=' ')
+        print(result_lst[i], end=' ')
     else:
         print(result_lst[i])
