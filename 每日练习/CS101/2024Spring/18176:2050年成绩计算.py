@@ -2,7 +2,9 @@
 def t_prime_lst(N):
     mask = [1] * (N + 1)
     for i in range(2, N + 1):
-        j = 2
+        if mask[i] == 0:
+            continue
+        j = i
         while i * j <= N:
             mask[i * j] = 0
             j += 1
@@ -10,17 +12,18 @@ def t_prime_lst(N):
     return lst
 
 
+
 if __name__ == '__main__':
-    t_prime_lst = t_prime_lst(10000)
+    t_prime_set = set(t_prime_lst(10000))
     m, n = map(int, input().split())
     for _ in range(m):
         valid_score = 0
         scores = list(map(int, input().split()))
         for score in scores:
-            if score in t_prime_lst:
+            if score in t_prime_set:
                 valid_score += score
         if valid_score == 0:
-            print('0')
+            print(0)
         else:
             average_score = valid_score / len(scores)
             print("{:.2f}".format(average_score))
