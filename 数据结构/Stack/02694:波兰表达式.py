@@ -15,7 +15,10 @@ def calculate(expression):
     # 从右向左扫描表达式
     for element in splited_expression[::-1]:
         # 将数字压入栈
-        if element in ['+', '-', '*', '/']:
+        if element not in ['+', '-', '*', '/']:
+            stack.append(float(element))
+        # 遇到运算符时，弹出栈顶的两个数，用运算符对它们做相应的计算
+        else:
             num1 = stack.pop()
             num2 = stack.pop()
             if element == "+":
@@ -26,9 +29,8 @@ def calculate(expression):
                 stack.append(num1 * num2)
             else:
                 stack.append(num1 / num2)
-        else:
-            stack.append(float(element))
     return stack[0]
+
 
 if __name__ == '__main__':
     expression = input()
